@@ -22,6 +22,7 @@ Step5 Count the values from the data.
 Step6 Do plots like boxplots,countplot,distribution plot,histogram plot.
 
 ## Program:
+```
 import pandas as pd
 from scipy import stats
 import numpy as np
@@ -31,6 +32,7 @@ from google.colab import files
 uploaded = files.upload()
 df = pd.read_csv('diabetes.csv')
 df
+```
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/b86a25e3-875a-4476-b8cf-32bed3549f6e)
 
@@ -39,19 +41,21 @@ df.isnull().sum()
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/f57425f8-09fb-45b6-a01f-d5518de65b2c)
 
 
-
+```
 q1 = df.quantile(0.25)
 q3 = df.quantile(0.75)
 iqr = q3 - q1
 iqr
+```
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/b040f414-b6d3-423f-b2d1-9d4e894c2d65)
 
-
+```
 low = q1 - 1.5*iqr
 high = q1 + 1.5*iqr
 df = df[(df >= low) & (df <= high)]
 df
+```
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/08ceca22-d480-48fb-84ae-157cc84c4da4)
 
@@ -83,13 +87,13 @@ sns.displot(x ="Age", data = df)
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/ba27e6e9-1f4c-4b66-bd91-0a8085e61f1e)
 
-
+```
 from google.colab import files
 uploaded = files.upload()
 
 df = pd.read_csv('employeesal.csv')
 df
-
+```
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/45cd23b9-499b-4706-a51d-0a9f9f0caf93)
 
 
@@ -97,20 +101,22 @@ df.isnull().sum()
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/5ef1ca70-1a08-4883-9a68-3b0787113401)
 
-
+```
 numeric_cols = df.select_dtypes(include=[int, float])
 q1 = numeric_cols.quantile(0.25);
 q3 = numeric_cols.quantile(0.75);
 iqr = q3 - q1
 iqr
+```
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/712b62f3-12bc-4cef-84c2-2e6da98112a0)
 
-
+```
 low = q1 - 1.5*iqr
 high = q1 + 1.5*iqr
 numeric_cols = numeric_cols[(numeric_cols >= low) & (numeric_cols <= high)]
 numeric_cols.dropna()
+```
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/90b08078-886c-4d30-bf90-393ebd469ea2)
 
@@ -133,12 +139,13 @@ sns.histplot(x = 'Salary',data = numeric_cols)
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/dead7ada-fe4b-439f-868f-b734cf4845a0)
 
-
+```
 from google.colab import files
 uploaded = files.upload()
 df = pd.read_csv('SuperStore.csv')
 df
 df.isnull().sum()
+```
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/b2199f75-e978-4476-8189-b0720fd812c7)
 
@@ -152,20 +159,23 @@ df.dtypes
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/f8486673-7e1c-43ad-a7a8-bb9c6c44760d)
 
-
+```
 numeric_cols = df.select_dtypes(include=[float])
 q1 = numeric_cols.quantile(0.25);
 q3 = numeric_cols.quantile(0.75);
 iqr = q3 - q1
 iqr
+```
 
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/c86beda7-7110-4047-9fab-aefa82da0849)
 
-
+```
 low = q1 - 1.5*iqr
 high = q1 + 1.5*iqr
 numeric_cols = numeric_cols[(numeric_cols >= low) & (numeric_cols <= high)]
 sns.boxplot(numeric_cols)
+```
+
 ![image](https://github.com/keerthysesha/ODD2023-DataScience-Ex-03/assets/125575936/45e91879-6091-42cf-bc32-78f4e4061079)
 
 
